@@ -90,19 +90,20 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes.
 
-|---**Layer**---------|---**Specification**----------------------------------------------------------|
-|---Normalization-----|---Normalize images to values between (-0.5,0.5)------------------------------|
-|---Image Cropping----|---70 rows at the top and 20 rows in the bottom of the picture was removed ---|
-|---Convolution-------|---5x5 filter with 24 channels out, strides (2,2)-----------------------------|
-|---Convolution-------|---5x5 filter with 36 channels out, strides (2,2)-----------------------------|
-|---Convolution-------|---5x5 filter with 48 channels out, strides (2,2)-----------------------------|
-|---Convolution-------|---5x5 filter with 64 channels out--------------------------------------------|
-|---Convolution-------|---5x5 filter with 64 channels out--------------------------------------------|
-|---Convolution-------|---5x5 filter with 24 channels out--------------------------------------------|
-|---Fully connected---|---Output size 100------------------------------------------------------------|
-|---Fully connected---|---Output size 50-------------------------------------------------------------|
-|---Fully connected---|---Output size 10-------------------------------------------------------------|
-|---Fully connected---|---Output size 1--------------------------------------------------------------|
+|  **Layer**          |  **Specification**|
+|---------------------|-------------------|
+|   Normalization     |   Normalize images to values between (-0.5,0.5)                              |
+|   Image Cropping    |   70 rows at the top and 20 rows in the bottom of the picture was removed    |
+|   Convolution       |   5x5 filter with 24 channels out, strides (2,2)                             |
+|   Convolution       |   5x5 filter with 36 channels out, strides (2,2)                             |
+|   Convolution       |   5x5 filter with 48 channels out, strides (2,2)                             |
+|   Convolution       |   5x5 filter with 64 channels out                                            |
+|   Convolution       |   5x5 filter with 64 channels out                                            |
+|   Convolution       |   5x5 filter with 24 channels out                                            |
+|   Fully connected   |   Output size 100                                                            |
+|   Fully connected   |   Output size 50                                                             |
+|   Fully connected   |   Output size 10                                                             |
+|   Fully connected   |   Output size 1                                                              |
 
 #### 3. Creation of the Training Set & Training Process
 
