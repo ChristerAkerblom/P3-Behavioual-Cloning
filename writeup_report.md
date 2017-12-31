@@ -29,7 +29,8 @@ My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
-* writeup_report.md summarizing the results
+* writeup_report.md summarizing the result
+* video.mp4 of vehicle completing autonomuous driving of the track
 
 #### 2. Code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
@@ -121,4 +122,4 @@ After the collection process, I had 29k number of data points. I then preprocess
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by a number of test with more epochs where validation error increased after 5 epochs. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by a number of test with more epochs where validation error increased after 4-5 epochs. I used an adam optimizer so that manually training the learning rate wasn't necessary.
