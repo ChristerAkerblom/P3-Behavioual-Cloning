@@ -10,7 +10,7 @@ from keras.layers.pooling import MaxPooling2D
 from keras.models import Sequential
 
 
-EPOCHS = 5
+EPOCHS = 4
 lines = []
 data_file = "./Graphic_Fast2/driving_log.csv"
 img_path = "./Graphic_Fast2/IMG/"
