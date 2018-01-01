@@ -4,16 +4,16 @@ import cv2
 import tensorflow as tf
 import numpy as np
 import sklearn
-from keras.layers import Input, Flatten, Dense, Lambda, Cropping2D
+from keras.layers import Input, Flatten, Dense, Lambda, Cropping2D, Dropout
 from keras.layers.convolutional import Convolution2D
 from keras.layers.pooling import MaxPooling2D
 from keras.models import Sequential
 
 
-EPOCHS = 4
+EPOCHS = 7
 lines = []
-data_file = "./Graphic_Fast2/driving_log.csv"
-img_path = "./Graphic_Fast2/IMG/"
+data_file = "./data/driving_log.csv"
+img_path = "./data/IMG/"
 aug_factor = 2
 
 #Load steering wheel data and images and create training data
@@ -38,7 +38,8 @@ def generator(samples, batch_size=32):
             angles = []
             for batch_sample in batch_samples:
                 name = img_path + batch_sample[0].split('/')[-1]
-                center_image = cv2.imread(name)
+                src = cv2.imread(name)
+                center_image = cv2.cvtColor(src, cv2.COLOR_BGR2RGB)
                 center_image_flipped = np.fliplr(center_image)
                 center_angle = float(batch_sample[3])
                 center_angle_flipped = - center_angle
@@ -81,8 +82,11 @@ model = Sequential()
 model.add(Lambda(lambda x: x / 255.0 - 0.5, input_shape=(160,320,3)))
 model.add(Cropping2D(cropping=((70,25),(0,0))))
 model.add(Convolution2D(24,5,5,subsample=(2,2),activation="relu"))
+model.add(Dropout(0.2, noise_shape=None, seed=None))
 model.add(Convolution2D(36,5,5,subsample=(2,2),activation="relu"))
+model.add(Dropout(0.2, noise_shape=None, seed=None))
 model.add(Convolution2D(48,5,5,subsample=(2,2),activation="relu"))
+model.add(Dropout(0.2, noise_shape=None, seed=None))
 model.add(Convolution2D(64,3,3,activation="relu"))
 model.add(Convolution2D(64,3,3,activation="relu"))
 model.add(Flatten())
