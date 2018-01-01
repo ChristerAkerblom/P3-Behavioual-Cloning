@@ -91,9 +91,8 @@ The final model architecture (model.py lines 18-24) consisted of a convolution n
 |   Convolution       |   5x5 filter with 24 channels out, strides (2,2)                             |
 |   Convolution       |   5x5 filter with 36 channels out, strides (2,2)                             |
 |   Convolution       |   5x5 filter with 48 channels out, strides (2,2)                             |
-|   Convolution       |   5x5 filter with 64 channels out                                            |
-|   Convolution       |   5x5 filter with 64 channels out                                            |
-|   Convolution       |   5x5 filter with 24 channels out                                            |
+|   Convolution       |   3x3 filter with 64 channels out                                            |
+|   Convolution       |   3x3 filter with 64 channels out                                            |
 |   Fully connected   |   Output size 100                                                            |
 |   Fully connected   |   Output size 50                                                             |
 |   Fully connected   |   Output size 10                                                             |
