@@ -47,8 +47,7 @@ The model.py file contains the code for training and saving the convolution neur
 #### 1. Model architecture overview
 
 The data were is normalized in the model using a Keras lambda layer and cropped in order to remove non-relevant infomration in the top and bottom of the images.
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 64 (model.py lines 80-92) 
-The model includes RELU layers to introduce nonlinearity.
+My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 64. The model includes RELU layers to introduce nonlinearity.
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -74,7 +73,7 @@ My first step was to use a convolution neural network model similar to the AlexN
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I added data to the training of the model.
+To combat the overfitting, I added dropouts between the layers but also additional data to the training of the model.
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track epecially in the sharp curves and at the bridge. To improve the driving behavior in these cases, I collected more data for theese scenarios.
 
@@ -82,15 +81,18 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes.
+The final model architecture consisted of a convolution neural network with the following layers and layer sizes.
 
 |  **Layer**          |  **Specification**|
 |---------------------|-------------------|
 |   Normalization     |   Normalize images to values between (-0.5,0.5)                              |
 |   Image Cropping    |   70 rows at the top and 20 rows in the bottom of the picture was removed    |
 |   Convolution       |   5x5 filter with 24 channels out, strides (2,2)                             |
+|   Dropout           |   dropout rate 0.2                                                           |
 |   Convolution       |   5x5 filter with 36 channels out, strides (2,2)                             |
+|   Dropout           |   dropout rate 0.2                                                           |
 |   Convolution       |   5x5 filter with 48 channels out, strides (2,2)                             |
+|   Dropout           |   dropout rate 0.2                                                           |
 |   Convolution       |   3x3 filter with 64 channels out                                            |
 |   Convolution       |   3x3 filter with 64 channels out                                            |
 |   Fully connected   |   Output size 100                                                            |
